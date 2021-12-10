@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.1" type="plugin" group="content" method="upgrade">
+	<name>TelegramBot</name>
+	<author>Sergey Bunin</author>
+	<creationDate>December 2021</creationDate>
+	<copyright>Copyright (C) 2021 Sergey Bunin</copyright>
+	<license>GNU General Public License version 3 or later;</license>
+	<authorEmail>sebun@ya.ru</authorEmail>
+	<authorUrl></authorUrl>
+	<version>2.0</version>
+	<description>PLG_TELEGRAMBOT_XML_DESCRIPTION</description>
+	
+	<files>
+		<filename plugin="telegrambot">telegrambot.php</filename>
+	</files>
+	
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.plg_content_telegrambot.ini</language>
+		<language tag="en-GB">en-GB/en-GB.plg_content_telegrambot.sys.ini</language>
+		<language tag="ru-RU">ru-RU/ru-RU.plg_content_telegrambot.ini</language>
+		<language tag="ru-RU">ru-RU/ru-RU.plg_content_telegrambot.sys.ini</language>
+	</languages>
+	
+	<config>
+		<fields name="params">
+
+			<fieldset name="basic">
+				<field name="telegrambot_link" type="text"
+					default=""
+					description="PLG_TELEGRAMBOT_LINK_DESC"
+					label="PLG_TELEGRAMBOT_LINK_LABEL"
+					size="5"
+				/>
+
+				<field name="telegrambot_token" type="text"
+					default=""
+					description="PLG_TELEGRAMBOT_TOKEN_DESC"
+					label="PLG_TELEGRAMBOT_TOKEN_LABEL"
+					size="5"
+				/>
+
+				<field name="telegrambot_channel" type="text"
+					default=""
+					description="PLG_TELEGRAMBOT_CHANNEL_DESC"
+					label="PLG_TELEGRAMBOT_CHANNEL_LABEL"
+					size="5"
+				/>
+			</fieldset>
+
+		</fields>
+	</config>
+	
+	<updateservers>
+		<server type="extension" name="GitUpdateServer">https://raw.githubusercontent.com/USER/REPO-NAME/master/path-to-file/update.xml</server>
+	</updateservers>
+	
+</extension>
