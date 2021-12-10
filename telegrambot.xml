@@ -51,7 +51,7 @@
 	</config>
 	
 	<updateservers>
-		<server type="extension" name="GitUpdateServer">https://raw.githubusercontent.com/USER/REPO-NAME/master/path-to-file/update.xml</server>
+		<server type="extension" name="GitUpdateServer">https://raw.githubusercontent.com/SeBun/TelegramBot/main/update.xml</server>
 	</updateservers>
 	
 </extension>
