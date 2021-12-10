@@ -1,2 +1,16 @@
 README.md
+
+# Update XML
 update.xml
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Never ignore
+# Only apply this rule to the main repository's gitignore files
+!/.gitignore
+!/build/.gitignore
+
+# Build related
+RoboFile.ini
