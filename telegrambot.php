@@ -1,6 +1,6 @@
 <?php
 /*
- *   TelegramBot Plugin 2.0
+ *   TelegramBot Plugin
  *   Copyright (C) 2021  Sergey Bunin
  *   Released under GNU General Public License version 3 or later
  */
@@ -18,31 +18,39 @@ class PlgContentTelegrambot extends JPlugin
 		$token = $this->params->get('telegrambot_token', false);
 		$channel = $this->params->get('telegrambot_channel', false);
 		
-		$this->sendTelegram($link, $token, $channel, $article);	
+		if ($article->state) { // we post only if the material is published
+			$this->sendTelegram($link, $token, $channel, $article);	
+		}
 	}
   
 	/* Send to telegram channel */
 	public function sendTelegram($link, $token, $channel, $article)
 	{
 		$url = 'https://api.telegram.org/bot' . $token . '/sendPhoto';
-		$text = $article->title;
+
+		/* Create image */
 		$images  = json_decode($article->get("images"));
 		$image   = $images->image_intro;
-
+		
+		/* Create text */
+		$text = $article->title;
+		
+		/* Create buttons */
 		$inlinekeys[] = array(
-							array(
-								"text" => JText::_('PLG_TELEGRAMBOT_CHANNEL_SITEBUTTON'),
-								"url" => JRoute::_($link . "index.php?option=com_content&view=article&id=".$article->id)
-							)
-						);
+			array(
+				"text" => JText::_('PLG_TELEGRAMBOT_CHANNEL_SITEBUTTON'),
+				"url" => JRoute::_($link . "index.php?option=com_content&view=article&id=" . $article->id)
+			)
+		);
 		$inlinekeyboard = array("inline_keyboard" => $inlinekeys);
 		
+		/* Create content */
 		$content = array(
-						"chat_id" => $channel,
-						"caption" => $text,
-						"photo" => $link . $image,
-						"reply_markup" => $inlinekeyboard
-					);
+			"chat_id" => $channel,
+			"caption" => $text,
+			"photo" => $link . $image,
+			"reply_markup" => $inlinekeyboard
+		);
 					
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $url);
