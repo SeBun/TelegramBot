@@ -5,6 +5,24 @@
         <element>telegrambot</element>
         <type>plugin</type>
         <folder>content</folder>
+        <version>2.1.0</version>
+        <infourl title="Plugin description in the GitHub">https://github.com/SeBun/TelegramBot</infourl>
+        <downloads>
+            <downloadurl type="full" format="zip">https://github.com/SeBun/TelegramBot/archive/refs/tags/v2.1.zip</downloadurl>
+        </downloads>
+        <tags>
+            <tag>stable</tag>
+        </tags>
+        <maintainer>SeBun</maintainer>
+        <client>site</client>
+        <targetplatform name="joomla" version="3.*"/>
+    </update>
+    <update>
+        <name>TelegramBot plugin for Joomla</name>
+        <description>Update for automatic publication in the telegram channel plugin</description>
+        <element>telegrambot</element>
+        <type>plugin</type>
+        <folder>content</folder>
         <version>2.0.0</version>
         <infourl title="Plugin description in the GitHub">https://github.com/SeBun/TelegramBot</infourl>
         <downloads>
